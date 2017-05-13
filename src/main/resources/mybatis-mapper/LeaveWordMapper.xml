@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyq.sim.dao.LeaveWordDao">
+	<resultMap id="ResultMap" type="com.gyq.sim.entity.LeaveWord">  
+		<result column="id" property="id" />
+        <result column="forResearchId" property="forResearchId" />  
+        <result column="forResearchName" property="forResearchName" />
+        <result column="userIdentity" property="userIdentity" />
+        <result column="byUserName" property="byUserName" />
+        <result column="parentId" property="parentId" />
+        <result column="createTime" property="createTime" />
+        <result column="content" property="content" />
+    </resultMap> 
+    
+    <sql id="Base_Column_List">    
+        id,forResearchId,forResearchName,byUserId,userIdentity,byUserName,parentId,createTime,content
+    </sql> 
+    
+	<!-- 查询留言-->
+	<select id="getLeaveWord" resultMap="ResultMap" parameterType="com.gyq.sim.entity.LeaveWord">
+		select 
+			<include refid="Base_Column_List" /> 
+		from 
+			sim_leaveword
+		where 
+			1=1
+			<if test="id != null and id != ''">
+				and id = #{id} 
+			</if>
+				and forResearchId = #{forResearchId}
+			<if test="parentId != null and parentId != ''">
+				and parentId = #{parentId} 
+			</if>
+	</select>
+	<!-- 插入留言 -->
+	<insert id="saveLeaveWord" parameterType="com.gyq.sim.entity.LeaveWord">
+		insert into sim_leaveword
+		(forResearchId,forResearchName,byUserId,userIdentity,byUserName,parentId,createTime,content)
+		values (#{forResearchId},#{forResearchName},#{byUserId},#{userIdentity},#{byUserName},#{parentId},#{createTime},#{content})
+	</insert>
+	<delete id="deleteLeaveWord" parameterType="com.gyq.sim.entity.LeaveWord">
+	delete from sim_leaveword
+	where id = #{id}
+	</delete>
+</mapper>

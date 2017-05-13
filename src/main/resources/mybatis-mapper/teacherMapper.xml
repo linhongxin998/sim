@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyq.sim.dao.TeacherDao">
+	<resultMap id="ResultMap" type="com.gyq.sim.entity.SimTeacher">
+		<result column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="password" property="password" />
+		<result column="identity" property="identity" />
+		<result column="tCode" property="tCode" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,username,identity,tCode,qq,qqUrl,qqSrc
+	</sql>
+
+	<!-- 按教师姓名和编号查询 -->
+	<select id="getTeacherList" resultMap="ResultMap"
+		parameterType="com.gyq.sim.entity.SimTeacher">
+		select
+		<include refid="Base_Column_List" />
+		from
+		sim_teacher
+		where
+		1=1
+		<if test="id !=null and id!=''">
+			and
+			id = #{id}
+		</if>
+		<if test="username !=null and username!=''">
+			and
+			username LIKE "%"#{username}"%"
+		</if>
+		<if test="tCode !=null and tCode !=''">
+			and
+			tCode LIKE "%"#{tCode}"%"
+		</if>
+	</select>
+	<!-- 从数据库中删除教师 -->
+	<delete id="deleteTeacher" parameterType="com.gyq.sim.entity.SimTeacher">
+		delete from sim_teacher
+		where id=#{id}
+	</delete>
+	<!-- 向数据库中添加教师 -->
+	<insert id="addTeacher" parameterType="com.gyq.sim.entity.SimTeacher">
+		insert into sim_teacher
+		(username,password,identity,tCode)
+		values (#{username},#{password},'teacher',#{tCode},#{qq},#{qqUrl},#{qqSrc})
+	</insert>
+	<!-- 编辑数据库中的教师信息 -->
+	<update id="editTeacher" parameterType="com.gyq.sim.entity.SimTeacher">
+		update sim_teacher set
+		<if test="username !=null and username !=''">
+			username = #{username},
+		</if>
+		<if test="tCode !=null and tCode !=''">
+			tCode = #{tCode},
+		</if>
+		<if test="password !=null and password!=''">
+			password = #{password},
+		</if>
+		<if test="qq !=null and qq !=''">
+			qq = #{qq},
+		</if>
+		<if test="qqUrl !=null and qqUrl !=''">
+			qqUrl = #{qqUrl},
+		</if>
+		<if test="qqSrc !=null and qqSrc !=''">
+			qqSrc = #{qqSrc}
+		</if>
+		where id = #{id}
+	</update>
+</mapper>

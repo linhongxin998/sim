@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.gyq.sim.dao.FiledDao">  
+    <resultMap type="com.gyq.sim.entity.SimFiled" id="filedMapEntity">  
+        <id property="id"  column="id" javaType="String" jdbcType="VARCHAR" />  
+        <result property="fileData" column="fileData"     javaType="byte[]" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />  
+        <result property="fileName"  column="fileName"      javaType="String" jdbcType="VARCHAR" />  
+    </resultMap>  
+      
+    <insert id="saveFile" parameterType="com.gyq.sim.entity.SimFiled">  
+        INSERT INTO sim_filed(id,  
+                              fileData,  
+                              fileName)  
+        VALUES(#{id, jdbcType=VARCHAR},  
+               #{fileData, javaType=byte[], jdbcType=BLOB, typeHandler=org.apache.ibatis.type.BlobTypeHandler},  
+               #{fileName, jdbcType=VARCHAR})  
+    </insert>  
+      
+    <delete id="deletePhotoByRcode">  
+        DELETE FROM sim_filed  
+              WHERE id = #{rCode, jdbcType=VARCHAR}  
+    </delete>  
+      
+    <update id="updataFiled" >  
+        UPDATE sim_filed   
+           SET fileData = #{photoData, javaType=byte[], jdbcType=BLOB, typeHandler=org.apache.ibatis.type.BlobTypeHandler},  
+               fileName = #{fileName, jdbcType=VARCHAR}  
+         WHERE id = #{rCode, jdbcType=VARCHAR}  
+    </update>  
+          
+    <select id="downFileByRCode" resultMap="filedMapEntity">  
+        SELECT id,  
+               fileData,  
+               fileName  
+          FROM sim_filed  
+         WHERE id = #{rCode, jdbcType=VARCHAR}  
+    </select>  
+</mapper>  

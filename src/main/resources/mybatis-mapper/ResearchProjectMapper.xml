@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gyq.sim.dao.ResearchProjectDao">
+	<resultMap id="ResultMap" type="com.gyq.sim.entity.ResearchProject">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="content" property="content" />
+		<result column="intro" property="intro" />
+		<result column="rCode" property="rCode" />
+		<result column="tid" property="tid" />
+		<result column="createTime" property="createTime" jdbcType="TIMESTAMP"/>
+		<result column="updateTime" property="updateTime" jdbcType="TIMESTAMP"/>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id,name,content,intro,rCode,tid,createTime,updateTime
+	</sql>
+
+	<!-- 查询科研项目列表 -->
+	<select id="getResearchProjectList" resultMap="ResultMap"
+		parameterType="com.gyq.sim.entity.ResearchProject">
+		select
+		<include refid="Base_Column_List" />
+		from
+		sim_researchproject
+		where
+		1=1
+		<if test="id !=null and id !=''">
+			and
+			id = #{id}
+		</if>
+		<if test="tid !=null and tid !=''">
+			and
+			tid = #{tid}
+		</if>
+			
+		<if test="name !=null and name !=''">
+			and
+			name LIKE "%"#{name}"%"
+		</if>
+		<if test="rCode !=null and rCode !=''">
+			and
+			rCode LIKE "%"#{rCode}"%"
+		</if>
+	</select>
+	
+	<!-- 通过教师名字查询科研项目 -->
+	<select id="showAllListByTeacherName" resultMap="ResultMap"
+		parameterType="com.gyq.sim.entity.ResearchProject">
+		select
+		<include refid="Base_Column_List" />
+		from
+		sim_researchproject
+		where
+		1=1
+		<if test="name !=null and name !=''">
+			and
+			name LIKE "%"#{name}"%"
+		</if>
+		<if test="rCode !=null and rCode !=''">
+			and
+			rCode LIKE "%"#{rCode}"%"
+		</if>
+		<if test="intro !=null and intro !=''">
+			and
+			tid in (select  id from sim_teacher where username like "%"#{intro}"%" )
+		</if>
+	</select>
+	
+	<!-- 向数据库中添加科研项目 -->
+	<insert id="addResearchProject" parameterType="com.gyq.sim.entity.ResearchProject">
+		insert into sim_researchproject
+		(name,content,intro,rCode,tid,createTime,updateTime)
+		values (#{name},#{content},#{intro},#{rCode},#{tid},#{createTime},#{updateTime})
+	</insert>
+	
+	<!-- 更新科研项目信息 -->
+	<update id="editResearchProject" parameterType="com.gyq.sim.entity.ResearchProject">
+	update sim_researchproject set
+		<if test="name !=null and name !=''">
+			name = #{name},
+		</if>
+		<if test="rCode !=null and rCode !=''">
+			rCode = #{rCode},
+		</if>
+		<if test="intro !=null and intro !=''">
+			intro = #{intro},
+		</if>
+		<if test="content !=null and content !=''">
+			content = #{content},
+		</if>
+		<if test="updateTime !=null and updateTime !=''">
+			updateTime = #{updateTime}
+		</if>
+		
+		where id = #{id} and tid=#{tid}
+	</update>
+	
+	<delete id="deleteResearchproject" parameterType="com.gyq.sim.entity.ResearchProject">
+	delete from sim_researchproject
+	where id = #{id}
+	</delete>
+</mapper>
