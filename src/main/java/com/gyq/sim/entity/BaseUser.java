@@ -1,5 +1,7 @@
 package com.gyq.sim.entity;
 
+import java.util.UUID;
+
 /**
  * 用户基类
  * @author qiqiangvae
@@ -9,7 +11,7 @@ public class BaseUser {
 	/**
 	 * 用户id
 	 */
-    private Integer id;    
+    private Integer id; 
     /**
      * 用户姓名
      */
@@ -60,4 +62,12 @@ public class BaseUser {
 	public void setAge(int parseInt) {
 		
 	}    
+	
+	public String getUUid(){
+		String tempUUid = UUID.randomUUID().toString();
+		/*return tempUUid.substring(0,8)+tempUUid.substring(9,13)+
+				tempUUid.substring(14,18)+tempUUid.substring(19,23)+
+				tempUUid.substring(24);*/
+		return tempUUid.replaceAll("-", "");
+	}
 }    
