@@ -7,7 +7,7 @@ import java.util.UUID;
  * @author qiqiangvae
  *
  */
-public class BaseUser {
+public class BaseUser extends BaseEntity{
 	/**
 	 * ”√ªßid
 	 */
@@ -62,12 +62,5 @@ public class BaseUser {
 	public void setAge(int parseInt) {
 		
 	}    
-	
-	public String getUUid(){
-		String tempUUid = UUID.randomUUID().toString();
-		/*return tempUUid.substring(0,8)+tempUUid.substring(9,13)+
-				tempUUid.substring(14,18)+tempUUid.substring(19,23)+
-				tempUUid.substring(24);*/
-		return tempUUid.replaceAll("-", "");
-	}
+
 }    
