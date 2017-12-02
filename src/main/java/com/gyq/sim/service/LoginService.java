@@ -1,10 +1,10 @@
 package com.gyq.sim.service;
 
-import com.gyq.sim.entity.BaseUser;
+import com.gyq.sim.entity.common.BaseUser;
 
 public interface LoginService {
 	/**
-	 * ÓÃ»§µÇÂ¼
+	 * ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	 * @param password 
 	 * @param username 
 	 */

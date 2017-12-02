@@ -2,15 +2,10 @@ package com.gyq.sim.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
-import com.gyq.sim.entity.BaseUser;
-import com.gyq.sim.entity.SimAdmin;
-import com.gyq.sim.entity.SimStudent;
-import com.gyq.sim.entity.SimTeacher;
+import com.gyq.sim.entity.common.BaseUser;
 
 /**
- * ÓÃ»§µÇÂ¼dao²ã
+ * ï¿½Ã»ï¿½ï¿½ï¿½Â¼daoï¿½ï¿½
  * @author qiqiangvae
  *
  */

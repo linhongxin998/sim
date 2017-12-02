@@ -1,4 +1,4 @@
-package com.gyq.sim.userServiceImpl;
+package com.gyq.sim.service.impl;
 
 import org.springframework.stereotype.Service;
 

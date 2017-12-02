@@ -7,11 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gyq.sim.entity.BaseUser;
+import com.gyq.sim.entity.common.BaseUser;
 import com.gyq.sim.service.LoginService;
 
 /**
- * µÇÂ¼¿ØÖÆÆ÷
+ * ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author qiqiangvae
  *
  */
@@ -23,7 +23,7 @@ public class LoginController {
 	private LoginService loginService;
 	
 	/**
-	 * ´ÓÊ×Ò³Ìø×ªµ½µÇÂ¼½çÃæ
+	 * ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
 	 * @param username
 	 * @param password
 	 * @return
@@ -34,7 +34,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * ÓÃ»§µÇÂ¼
+	 * ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	 * @param username
 	 * @param password
 	 * @param model
@@ -43,18 +43,18 @@ public class LoginController {
 	@RequestMapping("/doLogin.do")
 	public String doLogin(BaseUser user,Model model,HttpSession session){
 		/**
-		 * È¥Êý¾Ý¿â²éÑ¯ÓÃ»§ÃûºÍÃÜÂëÊÇ·ñÆ¥Åä£¬²¢È¡³öÕâ¸öÓÃ»§
+		 * È¥ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ñ¯ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Æ¥ï¿½ä£¬ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 		 */
 		BaseUser loginUser= loginService.doLogin(user);
-		//µÇÂ¼³É¹¦£¬Ôò½øÈë£¬·ñÔòÖØÐÂµÇÂ¼
+		//ï¿½ï¿½Â¼ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Â¼
 		if (loginUser!=null) {
 			model.addAttribute("loginUser",loginUser);
-			model.addAttribute("msg", "³É¹¦µÇÂ¼");
+			model.addAttribute("msg", "ï¿½É¹ï¿½ï¿½ï¿½Â¼");
 			session.setMaxInactiveInterval(3600);
 			session.setAttribute("username", loginUser.getUsername());
 			session.setAttribute("id", loginUser.getId());
 			session.setAttribute("identity", loginUser.getIdentity());
-			//Èç¹ûÊÇ¹ÜÀíÔ±µÇÂ¼£¬Ôò½øÈëºóÌ¨¹ÜÀíÒ³Ãæ,·ñÔò½øÈëÏîÄ¿Õ¹Ê¾Ò³Ãæ
+			//ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Õ¹Ê¾Ò³ï¿½ï¿½
 			if ("admin".equals(loginUser.getIdentity())) {
 				return "redirect:/login/adminLogin.do";
 			}if ("teacher".equals(loginUser.getIdentity())) {
@@ -63,13 +63,13 @@ public class LoginController {
 				return "redirect:/login/studentAndVisitorLogin.do";
 			}
 		}else {
-			model.addAttribute("msg", "ÓÃ»§Ãû»òÃÜÂë²»ÕýÈ·");
+			model.addAttribute("msg", "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²»ï¿½ï¿½È·");
 			return "redirect:/login/goToLogin.do";
 		}
 	}
 	
 	/**
-	 * ÍË³öµÇÂ¼
+	 * ï¿½Ë³ï¿½ï¿½ï¿½Â¼
 	 * @param session
 	 * @return
 	 */
@@ -82,7 +82,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * ½ÌÊ¦µÇÂ¼
+	 * ï¿½ï¿½Ê¦ï¿½ï¿½Â¼
 	 * @return
 	 */
 	@RequestMapping("/teacherLogin.do")
@@ -91,7 +91,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * ¹ÜÀíÔ±µÇÂ¼
+	 * ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Â¼
 	 * @return
 	 */
 	@RequestMapping("/adminLogin.do")
@@ -100,7 +100,7 @@ public class LoginController {
 	}
 	
 	/**
-	 * Ñ§Éú»òÓÎ¿ÍµÇÂ¼
+	 * Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½Î¿Íµï¿½Â¼
 	 * @return
 	 */
 	@RequestMapping("/studentAndVisitorLogin.do")

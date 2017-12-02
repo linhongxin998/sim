@@ -1,29 +1,27 @@
-package com.gyq.sim.entity;
-
-import java.util.UUID;
+package com.gyq.sim.entity.common;
 
 /**
- * ÓÃ»§»ùÀà
+ * ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author qiqiangvae
  *
  */
 public class BaseUser extends BaseEntity{
 	/**
-	 * ÓÃ»§id
+	 * ï¿½Ã»ï¿½id
 	 */
     private Integer id; 
     /**
-     * ÓÃ»§ÐÕÃû
+     * ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     private String username;    
     
     /**
-     * ÓÃ»§µÇÂ¼ÃÜÂë
+     * ï¿½Ã»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½
      */
     private String password;
     
     /**
-     * ÓÃ»§Éí·Ý
+     * ï¿½Ã»ï¿½ï¿½ï¿½ï¿½
      */
     private String identity;
     

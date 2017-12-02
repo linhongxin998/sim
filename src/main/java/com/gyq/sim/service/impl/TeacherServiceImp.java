@@ -1,4 +1,4 @@
-package com.gyq.sim.userServiceImpl;
+package com.gyq.sim.service.impl;
 
 import com.gyq.sim.dao.TeacherDao;
 import com.gyq.sim.entity.SimStudent;
@@ -18,7 +18,7 @@ public class TeacherServiceImp implements TeacherService {
 	private TeacherDao teacherDao;
 
 	/**
-	 * ²éÑ¯½ÌÊ¦ÁÐ±í
+	 * ï¿½ï¿½Ñ¯ï¿½ï¿½Ê¦ï¿½Ð±ï¿½
 	 */
 	@Override
 	public List<SimTeacher> showList(SimTeacher teacher) {
@@ -28,7 +28,7 @@ public class TeacherServiceImp implements TeacherService {
 	}
 
 	/**
-	 * Ìí¼Ó½ÌÊ¦ÐÅÏ¢
+	 * ï¿½ï¿½Ó½ï¿½Ê¦ï¿½ï¿½Ï¢
 	 */
 	@Override
 	public void addTeacher(SimTeacher addTeacher) {
@@ -36,7 +36,7 @@ public class TeacherServiceImp implements TeacherService {
 	}
 
 	/**
-	 * É¾³ý½ÌÊ¦ÐÅÏ¢
+	 * É¾ï¿½ï¿½ï¿½ï¿½Ê¦ï¿½ï¿½Ï¢
 	 */
 	@Override
 	public void deleteTeacher(Integer id) {

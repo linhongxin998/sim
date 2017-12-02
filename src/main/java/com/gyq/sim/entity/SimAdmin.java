@@ -1,7 +1,9 @@
 package com.gyq.sim.entity;
 
+import com.gyq.sim.entity.common.BaseUser;
+
 /**
- * 管理员用户类
+ * 锟斤拷锟斤拷员锟矫伙拷锟斤拷
  * @author qiqiangvae
  *
  */

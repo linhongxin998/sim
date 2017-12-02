@@ -1,12 +1,14 @@
 package com.gyq.sim.entity;
 
+import com.gyq.sim.entity.common.BaseUser;
+
 /**
- * 学生用户类
+ * 学锟斤拷锟矫伙拷锟斤拷
  * @author qiqiangvae
  *
  */
 public class SimStudent extends BaseUser {
-	private String sCode;//学生学号
+	private String sCode;//学锟斤拷学锟斤拷
 
 	public String getsCode() {
 		return sCode;

@@ -1,4 +1,4 @@
-package com.gyq.sim.userServiceImpl;
+package com.gyq.sim.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gyq.sim.dao.LoginDao;
-import com.gyq.sim.entity.BaseUser;
-import com.gyq.sim.entity.SimAdmin;
-import com.gyq.sim.entity.SimTeacher;
+import com.gyq.sim.entity.common.BaseUser;
 import com.gyq.sim.service.LoginService;
 
 /**
- * ÓÃ»§µÇÂ¼
+ * ï¿½Ã»ï¿½ï¿½ï¿½Â¼
  * 
  * @author qiqiangvae
  *
@@ -25,12 +23,12 @@ public class LoginServiceImp implements LoginService {
 	private LoginDao loginDao;
 
 	/**
-	 * ÓÃ»§µÇÂ¼
+	 * ï¿½Ã»ï¿½ï¿½ï¿½Â¼
 	 */
 	public BaseUser doLogin(BaseUser user) {
 		List<BaseUser> list = new ArrayList<>();
 		BaseUser resultUser = null;
-		// Èç¹ûÊÇ¹ÜÀíÔ±µÇÂ¼£¬Ôò´Ó¹ÜÀíÔ±±äÖÐÈ¡³öÓÃ»§
+		// ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½Ô±ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ã»ï¿½
 		list = loginDao.doLoginForUser(user);
 		if (list.size()>0) {
 			resultUser=list.get(0);

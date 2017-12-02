@@ -2,7 +2,7 @@ package test;
 
 import org.junit.Test;
 
-import com.gyq.sim.entity.BaseUser;
+import com.gyq.sim.entity.common.BaseUser;
 
 public class simTest {
 

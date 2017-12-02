@@ -1,16 +1,19 @@
 package com.gyq.sim.entity;
+
+import com.gyq.sim.entity.common.BaseUser;
+
 /**
- * ½ÌÊ¦ÓÃ»§Àà
+ * ï¿½ï¿½Ê¦ï¿½Ã»ï¿½ï¿½ï¿½
  * @author qiqiangvae
  *
  */
 public class SimTeacher extends BaseUser {
 	
-	private String tCode;//½ÌÊ¦±àºÅ
+	private String tCode;//ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½
 	
-	private String qq;//qqºÅ
+	private String qq;//qqï¿½ï¿½
 	
-	private String qqUrl;//qqÁ´½Ó
+	private String qqUrl;//qqï¿½ï¿½ï¿½ï¿½
 	
 	private String qqSrc;
 

@@ -1,4 +1,4 @@
-package com.gyq.sim.userServiceImpl;
+package com.gyq.sim.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class StudentServiceImp  implements StudentService{
 	private StudentDao studentDao;
 
 	/**
-	 * ´ÓÊı¾İ¿âÖĞ²éÑ¯ÓëstudentÏàËÆµÄËùÓĞÑ§Éú
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½Ğ²ï¿½Ñ¯ï¿½ï¿½studentï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½
 	 */
 	@Override
 	public List<SimStudent> showList(SimStudent student) {
@@ -27,7 +27,7 @@ public class StudentServiceImp  implements StudentService{
 	}
 
 	/**
-	 * ´ÓÊı¾İ¿âÖĞÉ¾³ıidÎªidµÄÑ§Éú
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½É¾ï¿½ï¿½idÎªidï¿½ï¿½Ñ§ï¿½ï¿½
 	 */
 	@Override
 	public void deleteStudent(Integer id) {
@@ -38,7 +38,7 @@ public class StudentServiceImp  implements StudentService{
 
 	
 	/**
-	 * ´ÓÊı¾İ¿âÖĞ±à¼­Ñ§ÉúĞÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½Ğ±à¼­Ñ§ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	@Override
 	public void editStudent(SimStudent student) {
@@ -46,7 +46,7 @@ public class StudentServiceImp  implements StudentService{
 	}
 
 	/**
-	 * ÏòÊı¾İ¿âÖĞÌí¼ÓÑ§Éú
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½
 	 */
 	@Override
 	public void addStudent(SimStudent addStudent) {

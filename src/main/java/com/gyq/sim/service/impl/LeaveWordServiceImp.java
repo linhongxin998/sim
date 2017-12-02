@@ -1,4 +1,4 @@
-package com.gyq.sim.userServiceImpl;
+package com.gyq.sim.service.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class LeaveWordServiceImp implements LeaveWordService{
 	private LeaveWordDao leaveWordDao;
 	
 	/**
-	 * »ñÈ¡Ä³ÏîÄ¿µÄÁôÑÔÐÅÏ¢
+	 * ï¿½ï¿½È¡Ä³ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	 */
 	@Override
 	public List<LeaveWord> getLeaveWord(LeaveWord leaveWord) {
@@ -28,7 +28,7 @@ public class LeaveWordServiceImp implements LeaveWordService{
 	}
 
 	/**
-	 * ÆÀÂÛ Â¥²ã
+	 * ï¿½ï¿½ï¿½ï¿½ Â¥ï¿½ï¿½
 	 */
 	@Override
 	public void saveLeaveWord(LeaveWord leaveWord) {
@@ -36,7 +36,7 @@ public class LeaveWordServiceImp implements LeaveWordService{
 	}
 
 	/**
-	 * É¾³ýÆÀÂÛ
+	 * É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 */
 	@Override
 	public void deleteLeaveWord(LeaveWord leaveWord) {
