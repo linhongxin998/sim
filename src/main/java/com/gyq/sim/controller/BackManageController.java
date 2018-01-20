@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BackManageController {
 	
 	/**
-	 * 跳转到学生管理页面
+	 * ???????????????
 	 * @return
 	 */
 	@RequestMapping("/goToStudentManage.do")
@@ -16,7 +16,7 @@ public class BackManageController {
 		return "/studentManage/showStudentList";
 	}
 	/**
-	 * 跳转到教师管理页面
+	 * ???????????????
 	 * @return
 	 */
 	@RequestMapping("/goToTeacherManage.do")
@@ -24,7 +24,7 @@ public class BackManageController {
 		return "/teacherManage/showTeacherList";
 	}
 	/**
-	 * 跳转到留言区管理页面
+	 * ??????????????????
 	 * @return
 	 */
 	@RequestMapping("/goToLeaveWordManage.do")
@@ -33,7 +33,7 @@ public class BackManageController {
 	}
 	
 	/**
-	 * 跳转到后台管理页面
+	 * ???????????????
 	 * @return
 	 */
 	@RequestMapping("/goTobackManage.do")
